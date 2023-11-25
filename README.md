@@ -98,5 +98,7 @@ Graphe qui represente le nombre d'employes par service:
 
 ### Technologies Utilisées :
 *JavaServer Faces (JSF)
+
 *Hibernate (ORM)
+
 *Base de données (MySQL)
