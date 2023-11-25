@@ -54,7 +54,7 @@ Cette application de gestion des employés est une solution complète permettant
 ![suppression d employe](https://github.com/Samia-Kouame/JSF/assets/147660832/eb16806d-d2fd-4cc3-8c9d-7daa00b573bb)
 
 
-liste des employes apres l'ajout de l'employe "Laoui Majda" et la supression de "Alaoui Ghita" :
+**liste des employes apres l'ajout de l'employe "Laoui Majda" et la supression de "Alaoui Ghita" :
 
 
 ![liste employe](https://github.com/Samia-Kouame/JSF/assets/147660832/0087b42e-4c20-45f8-a8f1-1e866f9b8ec3)
@@ -97,6 +97,6 @@ Graphe qui represente le nombre d'employes par service:
 -Déployer le fichier WAR généré sur votre serveur d'application.
 
 ### Technologies Utilisées :
--JavaServer Faces (JSF)
--Hibernate (ORM)
--Base de données (MySQL)
+*JavaServer Faces (JSF)
+*Hibernate (ORM)
+*Base de données (MySQL)
