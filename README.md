@@ -74,6 +74,7 @@ Cette application de gestion des employés est une solution complète permettant
 
 ![modif service](https://github.com/Samia-Kouame/JSF/assets/147660832/2202d38a-4011-4fb2-ad64-767c2549f193)
 
+**Modification de service "Arabe" par "Philosophie" :
 
 ![modif arabe par philo](https://github.com/Samia-Kouame/JSF/assets/147660832/be885adc-5ab0-4e9f-a8c6-2c54ff6ace42)
 
