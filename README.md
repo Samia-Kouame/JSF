@@ -41,37 +41,54 @@ Cette application de gestion des employés est une solution complète permettant
 
 -G.Employe:
 ------------
+
 ![employe](https://github.com/Samia-Kouame/JSF/assets/147660832/3537ca59-d087-4340-bc19-6bb8e74ea236)
+
 
 ![12](https://github.com/Samia-Kouame/JSF/assets/147660832/38e3019a-338e-44a2-9dba-1a0d1dc1e79f)
 
+
 ![ajout employe](https://github.com/Samia-Kouame/JSF/assets/147660832/47f006d3-a89c-4338-8f89-db8bf1d6b5b3)
+
 
 ![suppression d employe](https://github.com/Samia-Kouame/JSF/assets/147660832/eb16806d-d2fd-4cc3-8c9d-7daa00b573bb)
 
+
 liste des employes apres l'ajout de l'employe "Laoui Majda" et la supression de "Alaoui Ghita" :
+
 
 ![liste employe](https://github.com/Samia-Kouame/JSF/assets/147660832/0087b42e-4c20-45f8-a8f1-1e866f9b8ec3)
 
+
 ![modification d employe](https://github.com/Samia-Kouame/JSF/assets/147660832/d7411bd4-142f-49c7-8fa0-99ae2248619b)
+
 
 -G.Service : 
 -------------
+
 ![service](https://github.com/Samia-Kouame/JSF/assets/147660832/63d7e6fa-a34d-42a7-a673-9ac700c2e88f)
+
 
 ![supp service](https://github.com/Samia-Kouame/JSF/assets/147660832/74046e7b-029f-408a-9aa3-c2f1ac73f4b3)
 
+
 ![modif service](https://github.com/Samia-Kouame/JSF/assets/147660832/2202d38a-4011-4fb2-ad64-767c2549f193)
+
 
 ![modif arabe par philo](https://github.com/Samia-Kouame/JSF/assets/147660832/be885adc-5ab0-4e9f-a8c6-2c54ff6ace42)
 
+
 ![fltrer par code](https://github.com/Samia-Kouame/JSF/assets/147660832/b32ae360-a951-4767-9f52-41820eaff57c)
+
 
 -Statistiques : 
 ---------------
+
 Graphe qui represente le nombre d'employes par service:
 
+
 ![graphe](https://github.com/Samia-Kouame/JSF/assets/147660832/ca481b17-f15d-455a-9137-ee5753d567fc)
+
 
 ### Configuration:
 -Cloner le projet à partir du référentiel GitHub.
