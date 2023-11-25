@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    <p:panel header="Header">
+                        <p:panelGrid columns="3">
+                            <p:clock pattern="HH:mm:ss dd.MM.yyyy" mode="server"/>
+                        </p:panelGrid>
+
+                    </p:panel>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Menu">
+                            <p:menuitem value="G.Service" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="G.employes" url="http://www.primefaces.org/documentation.html" />
+                           
+                            <p:menuitem value="Statisticscs" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+               <p:layoutUnit position="center">
+                    <h:form id="f2">
+                        
+                        <p:panel header="Gestion des employes">
+                            <p:panelGrid columns="2" id="p2">
+
+                                <p:outputLabel value="Nom"></p:outputLabel>
+                                <p:inputText value="#{employeBean.employe.nom}"></p:inputText>
+                                <p:outputLabel value="Prenom"></p:outputLabel>
+                                <p:inputText value="#{employeBean.employe.prenom}"></p:inputText>
+                                <p:outputLabel value="Date de naissance"></p:outputLabel>
+                                <p:calendar value="#{employeBean.employe.dateNaissance}"></p:calendar>
+                                <p:outputLabel value="Photo"></p:outputLabel>
+                                <p:inputText value="#{employeBean.employe.photo}"></p:inputText>
+                                <p:outputLabel value="Service"/>
+                                <p:selectOneMenu value="#{employeBean.employe.service.id}" required="true">
+                                    <f:selectItem itemLabel="Select One" itemValue=""/>
+                                    <f:selectItems value="#{serviceBean.services}" var="s"
+                                                   itemLabel="#{s.libelle}" itemValue="#{s.id}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="Employe De"/>
+                                <p:selectOneMenu value="#{employeBean.employe.employe.id}" required="true">
+                                    <f:selectItem itemLabel="Select One" itemValue=""/>
+                                    <f:selectItems value="#{employeBean.employes}" var="e"
+                                                   itemLabel="#{e.nom}" itemValue="#{e.id}"/>
+                                </p:selectOneMenu>
+
+                                <p:commandButton value="Add" actionListener="#{employeBean.onCreateAction()}" update=":form2:tab2 " ></p:commandButton>
+                                <p:commandButton value="Update" actionListener="#{employeBean.onUpdateAction()}" update=":form2:tab2, f2:p2" />
+
+                            </p:panelGrid>
+                        </p:panel>
+                    </h:form>
+                    <h:form id="form2">
+                        <p:growl id="messages" showDetail="true"/>
+                        <p:panel header="Liste des employes">
+                            <p:dataTable var="e" value="#{employeBean.employes}" id="tab2">
+                                <p:column filterBy="#{e.id}" headerText="Id">
+                                    <p:outputLabel value="#{e.id}"></p:outputLabel>
+                                </p:column>
+                                <p:column sortBy="#{e.nom}" headerText="Nom">
+                                    <p:outputLabel value="#{e.nom}"></p:outputLabel>
+                                </p:column>
+                                <p:column sortBy="#{e.prenom}" headerText="Prenom">
+                                    <p:outputLabel value="#{e.prenom}"></p:outputLabel>
+                                </p:column>
+                                
+                                <p:column sortBy="#{e.dateNaissance}" headerText="Date de Naissance"  >
+                                    <p:calendar value="#{e.dateNaissance}" pattern="yyyy-MM-dd"></p:calendar>
+                                </p:column>
+                                
+                                <p:column sortBy="#{e.photo}" headerText="Photo">
+                                    <p:outputLabel value="#{e.photo}"></p:outputLabel>
+                                </p:column>
+                                <p:column sortBy="#{e.service.libelle}" headerText="Service">
+                                    <p:outputLabel value="#{e.service.libelle}"></p:outputLabel>
+                                </p:column>
+                                <p:column sortBy="#{e.employe.nom}" headerText="Employe">
+                                    <p:outputLabel value="#{e.employe.nom}"></p:outputLabel>
+                                </p:column>
+                                
+                                <p:column headerText="Actions">
+                                    
+                                    
+                                   
+                                <p:commandButton id="Supprimer" icon="ui-icon-trash"
+                                                 update=":form2:confirmDialog" oncomplete="PF('confirmation').show();"
+                                                 title="Supprime">
+                                    <f:setPropertyActionListener target="#{employeBean.employe}"
+                                                                 value="#{m}" />
+                                </p:commandButton>
+                                     <p:commandButton id="Modifier" icon= "ui-icon-pencil"
+                                                 update=":form2:confirmDialog2" oncomplete="PF('confirmation').show();"
+                                                 title="Modifier">
+                                    <f:setPropertyActionListener target="#{serviceBean.service}"
+                                                                 value="#{m}" />
+                                </p:commandButton>
+                                </p:column>
+                            </p:dataTable>
+                             <p:dialog id="confirmDialog" showEffect="fade"
+                                  header="Suppression d'un employe" 
+                                  widgetVar="confirmation">
+                            <h:panelGrid id="display" columns="2" cellpadding="4"
+                                     style="margin:0 auto;" />
+                            <h:inputHidden value="#{employeBean.employe.id}" id="supp"
+                                           required="true" />
+                            
+                            <p:outputLabel
+                                value="Etes vous sûr de vouloir supprimer cet employe ?" />
+                            <p:commandButton id="confirm" value="Oui"
+                                             update="messages,:form2:tab2,:form2:confirmDialog" 
+                                             oncomplete="PF('confirmation').hide();location.reload();"
+                                             actionListener="#{employeBean.onDeleteAction()}" />
+                            
+
+                            
+                            <p:commandButton id="decline" value="Non"
+                                             onclick="PF('confirmation').hide()" type="button" />
+
+                        </p:dialog>
+                            
+                            <p:dialog id="confirmDialog2" showEffect="fade"
+                                  header="Modification d'un service" 
+                                  widgetVar="confirmation">
+                            <h:panelGrid id="display2" columns="2" cellpadding="4"
+                                     style="margin:0 auto;" />
+                            <h:inputHidden value="#{employeBean.employe.id}" id="modif"
+                                           required="true" />
+                            
+                            <p:outputLabel
+                                value="Etes vous sûr de vouloir modifier cet employe ?" />
+                            <p:commandButton id="confirm2" value="Oui"
+                                             update="messages,:form2:tab2,:form2:confirmDialog2" 
+                                              />
+
+                            <p:commandButton id="decline2" value="Non"
+                                             onclick="PF('confirmation').hide()" type="button" />
+
+                        </p:dialog>
+                           
+                        </p:panel>
+
+                    </h:form>
+
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
